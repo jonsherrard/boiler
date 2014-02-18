@@ -51,7 +51,9 @@ app.use(express.methodOverride());
 app.use(express["static"](path.join(__dirname, "../static")));
 // Enable the express router /index  -> routes/index.js etc
 app.use(app.router);
+// Require a route file
+var routes = require('./routes/home')(app);
 // Create the HTTP server instance listening on a port
-http.createServer(app).listen(app.get('port')), function() {
-  return console.log('App listening on port' + app.get('port'));
-}
+http.createServer(app).listen(app.get('port'), function() {
+  return console.log('App listening on port: ', app.get('port'));
+});
