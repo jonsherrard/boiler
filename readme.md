@@ -12,3 +12,4 @@ Boiler is a getting started repo for Express.js and the native Mongo Driver. I'm
  - Include a grunt file for the front end.
  - For the production config, default to user and password for mongo auth.
  - User passport for Auth, allows swapping between OAuth 2 providers and local User Email
+ - Use node clustering on error, to bring down and restart processes.
