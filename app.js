@@ -49,7 +49,10 @@ if (cluster.isMaster) {
   // Define a set of variables avaliable to all view
   // by default, could be a .JSON file.
   // Could be different based on environment
-  app.locals = common.locals;
+  app.use(function(req, res, next) {
+    res.locals = common.settings.locals;
+    next();
+  });
   // Enable gzip on all assets and pages
   app.use(express.compress());
   // Enable the use of a favicon

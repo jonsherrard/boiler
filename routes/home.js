@@ -3,10 +3,12 @@ var common = require('../lib/common');
 // The app object is passed through in the require,
 // from app.js.
 module.exports = function (app) {
-  // When we reach http://host:port/
   app.get('/', function(req, res) {
-    // Return the settings as JSON
-    res.json(common.settings);
+    // Render the settings in to a jade file. Found in ./views
+    // http://www.devthought.com/code/use-jade-blocks-not-layouts/
+    res.render('index', {
+      pageName: 'Home Page'
+    });
   });
 
 };
