@@ -69,7 +69,7 @@ if (cluster.isMaster) {
   app.use(express["static"](path.join(__dirname, "../static")));
   // Enable the express router /index  -> routes/index.js etc
   app.use(app.router);
-  // Require a route file
+  // All routes are defined in the index.js file of the routes directory.
   var routes = require('./routes')(app);
   // Create the HTTP server instance listening on a port
   http.createServer(app).listen(app.get('port'), function() {
