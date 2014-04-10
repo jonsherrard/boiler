@@ -61,6 +61,8 @@ if (cluster.isMaster) {
   if (app.get('env') == 'development') {
     // Utilise the express error handler
     app.use(express.errorHandler());
+    // Pretty print html during development
+    app.locals.pretty = true;
   }
   // Use the express request body parser
   app.use(express.bodyParser());
@@ -69,7 +71,7 @@ if (cluster.isMaster) {
   // Define the location of static assets
   // NB Node is not that performant in this area
   // Consider a static file server or S3 or something
-  app.use(express["static"](path.join(__dirname, "../static")));
+  app.use(express["static"](path.join(__dirname, "public")));
   // Enable the express router /index  -> routes/index.js etc
   app.use(app.router);
   // All routes are defined in the index.js file of the routes directory.

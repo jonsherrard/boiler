@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  .container
+    .row.vertical-offset-100
+      .col-md-6.col-md-offset-3
+        h1 Register for #{appName}
+    .row.verical-offset-100
+      .col-md-6.col-md-offset-3
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title Enter your details below:
+          .panel-body
+            form(accept-charset='UTF-8', role='form')
+              fieldset
+                .form-group
+                  label.form-label(for='email') Email
+                  input.form-control(placeholder='E-mail', name='email', type='text')
+                .form-group
+                  labael.form-label(for='password') Password
+                  input.form-control(placeholder='Password', name='password', type='password', value='')
+                .form-group
+                  labael.form-label(for='passwordConfirm') Confirm Password
+                  input.form-control(placeholder='Confirm Password', name='passwordConfirm', type='password', value='')
+                .checkbox
+                  label
+                    input(name='remember', type='checkbox', value='Remember Me')
+                    | Remember Me
+                input.btn.btn-lg.btn-success.btn-block(type='submit', value='Register')

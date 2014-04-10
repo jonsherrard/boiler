@@ -11,6 +11,7 @@
     }
   },
   "locals": {
-    "appName": "Boiler"
+    "appName": "Boiler",
+    "description": "Boilerplate for a node express and Mongo Application"
   }
 }
