@@ -1,26 +1,19 @@
 // Let's run our processes with a cluster
 // http://rowanmanning.com/posts/node-cluster-and-express/
 var cluster = require('cluster');
-
 if (cluster.isMaster) {
-
   // Count the machine's CPUs
   var cpuCount = require('os').cpus().length;
-
   // Create a worker for each CPU
   for (var i = 0; i < cpuCount; i += 1) {
-      cluster.fork();
+    cluster.fork();
   }
-
   // Listen for dying workers
   cluster.on('exit', function (worker) {
-
-      // Replace the dead worker, we're not sentimental
-      console.log('Worker ' + worker.id + ' died :(');
-      cluster.fork();
-
+    // Replace the dead worker, we're not sentimental
+    console.log('Worker ' + worker.id + ' died :(');
+    cluster.fork();
   });
-
 // Code to run if we're in a worker process
 } else {
   // Load common settings and logger
@@ -44,7 +37,7 @@ if (cluster.isMaster) {
   // Require node path module, useful for directory routing
   path = require('path');
   // Require the Expressjs framework
-  var express = require('express');
+    var express = require('express');
   // Create a new express app instance
   var app = express();
   // Set the default port the app will run on from settings
@@ -77,7 +70,7 @@ if (cluster.isMaster) {
   // Enable the express router /index  -> routes/index.js etc
   app.use(app.router);
   // Require a route file
-  var routes = require('./routes/home')(app);
+  var routes = require('./routes')(app);
   // Create the HTTP server instance listening on a port
   http.createServer(app).listen(app.get('port'), function() {
     return console.log('App listening on port: ', app.get('port'));
