@@ -1,4 +1,24 @@
 extends layout
 
 block content
-  h1 #{appName}
+  .container
+    .row
+      .col-sm-12
+        h1 #{appName}
+    .row
+      .col-sm-12
+        p
+          | Welcome to #{appName}. There's not much here at the moment!
+
+        p 
+          | Please&nbsp;
+          a(href='/login') Login 
+          | &nbsp;or&nbsp;
+          a(href='/register') Register
+          | , you might find something once you've signed in&hellip;
+        
+    .row.vertical-offset-10
+      .col-sm-12
+        p Placeholder Kitten:
+        img(src="http://placekitten.com/g/700/480").thumbnail
+

@@ -11,3 +11,9 @@ h3:first-letter {
 .vertical-offset-100 {
   margin-top: 100px;
 }
+.vertical-offset-30 {
+  margin-top: 30px;
+}
+.vertical-offset-10 {
+  margin-top: 10px;
+}
