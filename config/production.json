@@ -1,0 +1,13 @@
+{
+  "port": "2655",
+  "baseUrl": "http://localhost/",
+  "database": {
+    "user": {
+      "name": "",
+      "password": ""
+    },
+    "connection": {
+      "uri": "localhost:27017/database-name"
+    }
+  }
+}

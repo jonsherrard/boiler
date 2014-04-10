@@ -1,0 +1,19 @@
+body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+h1:first-letter,
+h2:first-letter,
+h3:first-letter {
+  text-transform: capitalize;
+}
+.vertical-offset-100 {
+  margin-top: 100px;
+}
+.vertical-offset-30 {
+  margin-top: 30px;
+}
+.vertical-offset-10 {
+  margin-top: 10px;
+}

@@ -9,5 +9,9 @@
     "connection": {
       "uri": "localhost:27017/database-name"
     }
+  },
+  "locals": {
+    "appName": "Boiler",
+    "description": "Boilerplate for a node express and Mongo Application"
   }
 }
