@@ -16,20 +16,17 @@ if (cluster.isMaster) {
   });
 // Code to run if we're in a worker process
 } else {
+
   // Load common settings and logger
   // Have a look in lib/common.js
   var common= require('./lib/common');
   // Require database module
   // Have a look in lib/database.js
-  var db = require('./lib/database');
-  // Initialize Database
-  // Peek at the init function in lib/database.js
-  db.init(function(err, db) {
-    if (err) { return common.logger.error(err); }
-    // Add database instance to the common object;
+
+  require('./lib/database')(function(err, db){
     common.db = db;
-    // proceed with loading app
   });
+
   // Require the node http module
   var http = require('http');
   // Improve max http connections from default of 4
@@ -37,10 +34,12 @@ if (cluster.isMaster) {
   // Require node path module, useful for directory routing
   path = require('path');
   // Require the Expressjs framework
-    var express = require('express');
-  // Create a new express app instance
+  var express = require('express');
+  // Require the relevant passport modules
+
   var app = express();
-  // Set the default port the app will run on from settings
+ 
+  // Create a new express app instance
   app.set('port', common.settings.port);
   // set the view directory
   app.set('views', path.join(__dirname, 'public/views'));
@@ -59,15 +58,26 @@ if (cluster.isMaster) {
   app.use(express.favicon());
   // If we're in development mode...
   if (app.get('env') == 'development') {
+    app.use(express.logger('dev')); // log every request to the console
     // Utilise the express error handler
     app.use(express.errorHandler());
     // Pretty print html during development
     app.locals.pretty = true;
-    app.locals.user = true;
   }
-  // Use the express request body parser
-  app.use(express.bodyParser());
-  // Not sure what this next bit does...
+  app.use(express.cookieParser());
+  app.use(express.cookieSession({ secret: 'asdfasdlkjhkjh', maxAge: 360*5 }));
+  app.use(express.bodyParser()); // get information from html forms
+
+  app.use(express.session({ secret: 'asdfklajshdf' })); // session secret
+   // Set the default port the app will run on from settings
+  var authStrategy = require('./lib/authStrategy')(app);
+
+  app.set('ensureAuthenticated', function(req, res, next) {
+    console.log(req.isAuthenticated());
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/login');
+  });
+
   app.use(express.methodOverride());
   // Define the location of static assets
   // NB Node is not that performant in this area
@@ -79,7 +89,7 @@ if (cluster.isMaster) {
   var routes = require('./routes')(app);
   // Create the HTTP server instance listening on a port
   http.createServer(app).listen(app.get('port'), function() {
-    return console.log('App listening on port: ', app.get('port'));
+    return common.logger.info('App listening on port: ', app.get('port'));
   });
 // End cluster worker
 }

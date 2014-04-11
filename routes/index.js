@@ -1,6 +1,15 @@
 module.exports = function (app) {
   // List all routes here.
-  var home = require('./home')(app);
-  var login = require('./login')(app);
-  var register = require('./register')(app);
+  require('./home')(app);
+  require('./login')(app);
+  require('./register')(app);
+  require('./dashboard')(app);
+  require('./settings')(app);
+  require('./validators')(app);
+
+  app.get('/logout', function(req, res){
+    req.logout();
+    req.session = null;
+    res.redirect('/');
+  });
 };

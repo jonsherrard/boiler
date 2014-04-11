@@ -1,34 +1,18 @@
-.row.vertical-offset-10.nav-height-100
+.row
   .col-sm-12.nav-height-100
     .sidebar-nav
       ul.nav.nav-list
-        li.nav-header #{appName}
+        h2 #{appName}
         li
-          a(href='index')
-            i.fa.fa-home
+          a(href='/dashboard')
+            i.fa.fa-dashboard
             | &nbsp;Dashboard
         li
-          a(href='#')
-            i.fa.fa-envelope
-            | &nbsp;Messages
-            span.badge.badge-info
-        li
-          a(href='#')
-            i.fa.fa-comment
-            | &nbsp;Comments
-            span.badge.badge-info
-        li.active
-          a(href='#')
-            i.fa.fa-user
-            | &nbsp;Members
-            span.badge.badge-info
-        li.divider
-        li
-          a(href='#')
-            i.fa.fa-comment
+          a(href='/settings')
+            i.fa.fa-cog
             | &nbsp;Settings
             span.badge.badge-info
         li
-          a(href='/')
+          a(href='/logout')
             i.fa.fa-share
             | &nbsp;Logout

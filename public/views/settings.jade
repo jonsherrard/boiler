@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  .row
+    .col-sm-12
+      h2 #{pageName}
+      hr
+  .row
+    .col-sm-4
+      h3 User Settings
+      form#register-form(
+            accept-charset='UTF-8',
+            role='form',
+            data-parsley-validate,
+            novalidate,
+            method="POST"
+          )
+            fieldset
+              .form-group
+                label.form-label(for='firstName') First Name
+                input.form-control(placeholder='First Name',
+                  name='firstName',
+                  type='text',
+                  value='#{user.firstName}'
+                )
+              .form-group
+                label.form-label(for='lastName') Last Name
+                input.form-control(placeholder='Last Name',
+                  name='lastName',
+                  type='text',
+                  value='#{user.lastName}'
+                )
+              .form-group
+                label.form-label(for='email') Email
+                input.form-control(placeholder='E-mail',
+                  name='email',
+                  type='email',
+                  value='#{user.email}'
+                )
+              .row
+                .col-md-4.col-md-offset-8
+                  input.btn.btn-default.btn-block(type='submit', value='Update')
+
+

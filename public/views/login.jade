@@ -10,11 +10,17 @@ block content
         .panel-heading
           h3.panel-title Please sign in
         .panel-body
-          form(accept-charset='UTF-8', role='form', data-parsley-validate, novalidate)
+          form(
+            accept-charset='UTF-8',
+            role='form', 
+            data-parsley-validate,
+            novalidate,
+            method="POST"
+          )
             fieldset
               .form-group
                 label.form-label(for='email') Email
-                input.form-control(placeholder='E-mail', name='email', type='email', required)
+                input.form-control(placeholder='E-mail', name='username', type='email', required)
               .form-group
                 labael.form-label(for='password') Password
                 input.form-control(placeholder='Password', name='password', type='password', value='', required)
