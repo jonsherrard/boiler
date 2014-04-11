@@ -63,6 +63,7 @@ if (cluster.isMaster) {
     app.use(express.errorHandler());
     // Pretty print html during development
     app.locals.pretty = true;
+    app.locals.user = true;
   }
   // Use the express request body parser
   app.use(express.bodyParser());

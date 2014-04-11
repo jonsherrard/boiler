@@ -3,8 +3,14 @@ col-sm = "(min-width:768px)"
 col-md = "(min-width:992px)"
 col-lg = "@media (min-width:1200px)"
 
+// green
+color1 = #18bc9c
+
 body
   box-sizing border-box
+
+html, body, .container-fluid, .container, .row, .nav-height-100
+	height 100%
 
 
 h1, h2, h3
@@ -22,5 +28,7 @@ h1, h2, h3
 
 .vertical-offset-10
   margin-top 10px
+
+@import 'organisms/nav'
 
 @import 'organisms/parsley'

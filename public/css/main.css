@@ -3,6 +3,14 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+html,
+body,
+.container-fluid,
+.container,
+.row,
+.nav-height-100 {
+  height: 100%;
+}
 h1:first-letter,
 h2:first-letter,
 h3:first-letter {
@@ -20,6 +28,9 @@ h3:first-letter {
 }
 .vertical-offset-10 {
   margin-top: 10px;
+}
+.nav-column {
+  border-right: solid 1px #18bc9c;
 }
 .parsley-errors-list {
   padding: 0;

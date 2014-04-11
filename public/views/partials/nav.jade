@@ -1,35 +1,34 @@
-if user
-  .row.vertical-offset-10
-    .col-sm-12
-      .sidebar-nav
-        ul.nav.nav-list
-          li.nav-header Admin Menu
-          li
-            a(href='index')
-              i.fa.fa-home
-              | &nbsp;Dashboard
-          li
-            a(href='#')
-              i.fa.fa-envelope
-              | &nbsp;Messages
-              span.badge.badge-info
-          li
-            a(href='#')
-              i.fa.fa-comment
-              | &nbsp;Comments
-              span.badge.badge-info
-          li.active
-            a(href='#')
-              i.fa.fa-user
-              | &nbsp;Members
-              span.badge.badge-info
-          li.divider
-          li
-            a(href='#')
-              i.fa.fa-comment
-              | &nbsp;Settings
-              span.badge.badge-info
-          li
-            a(href='#')
-              i.fa.fa-share
-              | &nbsp;Logout
+.row.vertical-offset-10.nav-height-100
+  .col-sm-12.nav-height-100
+    .sidebar-nav
+      ul.nav.nav-list
+        li.nav-header #{appName}
+        li
+          a(href='index')
+            i.fa.fa-home
+            | &nbsp;Dashboard
+        li
+          a(href='#')
+            i.fa.fa-envelope
+            | &nbsp;Messages
+            span.badge.badge-info
+        li
+          a(href='#')
+            i.fa.fa-comment
+            | &nbsp;Comments
+            span.badge.badge-info
+        li.active
+          a(href='#')
+            i.fa.fa-user
+            | &nbsp;Members
+            span.badge.badge-info
+        li.divider
+        li
+          a(href='#')
+            i.fa.fa-comment
+            | &nbsp;Settings
+            span.badge.badge-info
+        li
+          a(href='/')
+            i.fa.fa-share
+            | &nbsp;Logout

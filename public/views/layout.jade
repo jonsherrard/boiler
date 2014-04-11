@@ -15,9 +15,9 @@ html
     block head
   body
     .container-fluid
-      if user
+      if user.isAuthenticated
         .row
-          .col-md-2
+          .col-md-2.nav-height-100.nav-column
             include partials/nav
           .col-md-10
             block content
