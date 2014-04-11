@@ -4,7 +4,7 @@ var livereload = require('gulp-livereload');
 var notify     = require('gulp-notify');
 
 module.exports = function() {
-  return gulp.src('./src/stylus/**/*.styl')
+  return gulp.src('./src/stylus/main.styl')
     .pipe(stylus({
       use: ['nib']
     }))

@@ -1,4 +1,8 @@
 @import 'nib'
+col-sm = "(min-width:768px)"
+col-md = "(min-width:992px)"
+col-lg = "@media (min-width:1200px)"
+
 body
   box-sizing border-box
 
@@ -9,10 +13,14 @@ h1, h2, h3
 
 // Offsets
 .vertical-offset-100
-  margin-top 100px
+	@media col-sm
+	  margin-top 100px
 
 .vertical-offset-30
-  margin-top 30px
+	@media col-sm
+	  margin-top 30px
 
 .vertical-offset-10
   margin-top 10px
+
+@import 'organisms/parsley'

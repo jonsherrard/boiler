@@ -3,25 +3,36 @@ html
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
- 
+
     title #{appName} - #{pageName}
- 
+
     meta(name='description', content='#{descriont}')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css", rel="stylesheet")
+    link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", rel="stylesheet")
     link(href="css/main.css", rel="stylesheet")
- 
-    block head 
+
+    block head
   body
-    include partials/nav
-    block content
- 
+    .container-fluid
+      if user
+        .row
+          .col-md-2
+            include partials/nav
+          .col-md-10
+            block content
+      else
+        .row
+          .col-md-12
+            block content
+
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
     script.
       window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+    script(src='js/parsley.min.js')
     script(src='js/app.js')
 
- 
+
     script.
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
